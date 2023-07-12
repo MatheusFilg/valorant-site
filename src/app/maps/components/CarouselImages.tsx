@@ -1,6 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 import { AlertTriangle, ArrowRight } from 'lucide-react'
-import { mapPoolProps } from '../page'
+
+export interface mapPoolProps  {
+  id: number
+  name: string
+  image: string
+  minimap: string
+  isActive: boolean
+  description: string
+}
+
 
 interface CarouselProps {
   maps: mapPoolProps

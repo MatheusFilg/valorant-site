@@ -1,14 +1,15 @@
 'use client'
-import { Carousel } from '@material-tailwind/react'
+import { Carousel } from '@material-tailwind/react';
 /* eslint-disable @next/next/no-img-element */
-import { CarouselImage } from './components/CarouselImages'
+import { CarouselImage } from './components/CarouselImages';
 
-export interface mapPoolProps {
+export interface mapPoolProps  {
   id: number
   name: string
   image: string
   minimap: string
   isActive: boolean
+  description: string
 }
 
 export const mapPool = [

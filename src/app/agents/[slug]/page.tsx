@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { ArrowLeft } from 'lucide-react'
 import Image from 'next/image'
 import { agents } from '../page'
@@ -41,7 +42,7 @@ export default function AgentPage(props: AgentSchema) {
             </h1>
 
             <div className="flex flex-row gap-1">
-              <Image
+              <img
                 src={agentsFiltered[0].classIcon}
                 alt=""
                 width={320}
