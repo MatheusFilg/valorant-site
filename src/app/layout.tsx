@@ -1,6 +1,5 @@
 
 import { Header } from '@/components/Header'
-import { GoogleOAuthProvider } from '@react-oauth/google'
 import { Nunito, Roboto_Flex as Roboto } from 'next/font/google'
 import { ReactNode } from 'react'
 import './globals.css'
