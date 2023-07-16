@@ -1,18 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
+import { prisma } from '@/lib/prisma'
 import { ArrowLeft } from 'lucide-react'
 import Image from 'next/image'
-import { agents } from '../page'
 
-interface AgentSchema {
+type AgentSchema = {
   params: {
     slug: string
   }
 }
 
-export default function AgentPage(props: AgentSchema) {
-  const agentsFiltered = agents.filter(
-    (item) => item.name === props.params.slug,
-  )
+export default async function AgentPage({ params}: AgentSchema) {
+  const agents = await prisma.agent.findMany()
+  const agentsFiltered = agents.filter((item) => item.name === params.slug)
 
   return (
     <div className="flex flex-col px-36 pt-32">
@@ -38,7 +37,7 @@ export default function AgentPage(props: AgentSchema) {
           />
           <div className="flex flex-col items-center gap-1">
             <h1 className="font-alt text-3xl text-red-800">
-              {props.params.slug}
+              {params.slug}
             </h1>
 
             <div className="flex flex-row gap-1">

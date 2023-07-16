@@ -1,16 +1,17 @@
-'use client'
+
+import { prisma } from '@/lib/prisma'
 import { AlertTriangle, ArrowLeft } from 'lucide-react'
 import Image from 'next/image'
-import { mapPool } from '../page'
 
-interface MapsPageProps {
+interface MapPageProps {
   params: {
     slug: string
   }
 }
 
-export default function MapsPage(props: MapsPageProps) {
-  const mapsFiltered = mapPool.filter((item) => item.name === props.params.slug)
+export default async function MapPage({params}: MapPageProps) {
+  const mapData = await prisma.map.findMany()
+  const mapsFiltered = mapData.filter((item) => item.name === params.slug)
 
   return (
     <div className="flex flex-col px-36 pt-32">
@@ -33,7 +34,7 @@ export default function MapsPage(props: MapsPageProps) {
             height={480}
             className="h-[432px] w-[432px] rounded-lg"
           />
-          <h1 className="relative font-alt text-5xl text-red-700 underline">
+          <h1 className="relative font-alt text-5xl -bottom-4 text-red-700 underline">
             {mapsFiltered[0].name}
           </h1>
         </div>

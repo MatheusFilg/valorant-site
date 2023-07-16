@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@material-tailwind/react": "^2.0.4",
+    "@prisma/client": "^5.0.0",
     "@react-oauth/google": "^0.11.0",
     "@types/node": "20.4.0",
     "@types/react": "18.2.14",
@@ -23,11 +24,13 @@
     "postcss": "8.4.25",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-responsive-carousel": "^3.2.23",
     "tailwindcss": "3.3.2",
     "typescript": "5.1.6"
   },
   "devDependencies": {
     "@rocketseat/eslint-config": "^1.2.0",
-    "prettier-plugin-tailwindcss": "^0.3.0"
+    "prettier-plugin-tailwindcss": "^0.3.0",
+    "prisma": "^5.0.0"
   }
 }
