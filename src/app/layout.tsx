@@ -1,4 +1,4 @@
-'use client'
+
 import { Header } from '@/components/Header'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import { Nunito, Roboto_Flex as Roboto } from 'next/font/google'
@@ -17,14 +17,13 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <GoogleOAuthProvider clientId="701632069603-vb1thpo5ppsvvohfnarvej3qrg4jkvvg.apps.googleusercontent.com">
+      {/* <GoogleOAuthProvider clientId="701632069603-vb1thpo5ppsvvohfnarvej3qrg4jkvvg.apps.googleusercontent.com"></GoogleOAuthProvider> */}
         <body
           className={` ${roboto.variable} ${nunito.variable} bg-gray-900 text-gray-100`}
         >
           <Header />
           {children}
         </body>
-      </GoogleOAuthProvider>
     </html>
   )
 }

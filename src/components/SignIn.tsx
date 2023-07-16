@@ -1,45 +1,46 @@
 /* eslint-disable @next/next/no-img-element */
-import { googleLogout, useGoogleLogin } from '@react-oauth/google'
-import axios from 'axios'
 import { User } from 'lucide-react'
-import { useState } from 'react'
+
+// import { googleLogout, useGoogleLogin } from '@react-oauth/google'
+// import axios from 'axios'
+// import { useState } from 'react'
 
 export default function SignIn() {
-  const [name, setName] = useState()
-  const [picture, setPicture] = useState()
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  // const [name, setName] = useState()
+  // const [picture, setPicture] = useState()
+  // const [isLoggedIn, setIsLoggedIn] = useState(false)
 
-  const login: any = useGoogleLogin({
-    onSuccess: async (tokenResponse) => {
-      try {
-        const res = await axios.get(
-          'https://www.googleapis.com/oauth2/v3/userinfo',
-          {
-            headers: {
-              Authorization: `Bearer ${tokenResponse.access_token}`,
-            },
-          },
-        )
-        const {
-          data: { name, picture },
-        } = res
-        setName(name)
-        setPicture(picture)
-        setIsLoggedIn(true)
-      } catch (err) {
-        console.log(err)
-      }
-    },
-  })
+  // const login: any = useGoogleLogin({
+  //   onSuccess: async (tokenResponse) => {
+  //     try {
+  //       const res = await axios.get(
+  //         'https://www.googleapis.com/oauth2/v3/userinfo',
+  //         {
+  //           headers: {
+  //             Authorization: `Bearer ${tokenResponse.access_token}`,
+  //           },
+  //         },
+  //       )
+  //       const {
+  //         data: { name, picture },
+  //       } = res
+  //       setName(name)
+  //       setPicture(picture)
+  //       setIsLoggedIn(true)
+  //     } catch (err) {
+  //       console.log(err)
+  //     }
+  //   },
+  // })
 
-  const logout = () => {
-    googleLogout()
-    setIsLoggedIn(false)
-  }
+  // const logout = () => {
+  //   googleLogout()
+  //   setIsLoggedIn(false)
+  // }
 
   return (
     <div>
-      {isLoggedIn ? (
+      {/* {isLoggedIn ? (
         <div className="flex flex-row gap-4">
           <div className="flex flex-col items-end">
             <p className="font-sans text-base leading-relaxed">{name}</p>
@@ -64,7 +65,17 @@ export default function SignIn() {
             <User className="h-6 w-6 text-gray-100" />
           </div>
         </button>
-      )}
+      )} */}
+
+        <button className="flex items-center gap-3">
+          <p className="font-sans text-lg leading-snug underline">
+            Login
+          </p>
+
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-500">
+            <User className="h-6 w-6 text-gray-100" />
+          </div>
+        </button>
     </div>
   )
 }
